@@ -1,6 +1,6 @@
-<span style="font-size:48px;">BOT-NET-2</span>
+![BOT-NET-Logo](developer/BOTNETLogo-2.jpg)
 
-![BOT-NET-Logo](developer/BOTNET2.png)
+<span style="font-size:48px;">BOT-NET-2</span>
 
 <span style="font-size:24px;">概述</span>
 
