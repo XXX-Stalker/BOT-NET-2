@@ -61,3 +61,7 @@ CC攻击：模拟大量HTTP请求压垮目标网站
 <span style="font-size:24px;">免责声明</span>
 
 本介绍仅供技术研究参考，请遵守当地法律法规，勿将此程序用于非法用途。
+
+<span style="font-size:24px;">注意</span>
+
+需要安装指定的python第三方库，否则无法打包！
